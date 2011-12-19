@@ -1,0 +1,410 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{LING-300: Homework 1}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+  \maketitle
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Carnie Chapter 4}
+  \hrulefill \par}
+
+\question{1}{TREES}
+\begin{quote}
+[Application of Skills; Basic to Intermediate]
+Using the rules we developed in chapter 3, draw the trees for the
+following sentences. Many of the sentences are ambiguous. For those
+sentences draw one possible tree, indicating the meaning by providing
+a paraphrase.
+\end{quote}
+
+
+\subquestion{f}{The book of poems with the bright red cover stinks.}
+
+\includegraphics[width=\textwidth]{Diagrams/4_1_f.png}
+
+\subquestion{g}{Louis hinted Mary stole the purse deftly.}
+
+\includegraphics[width=\textwidth]{Diagrams/4_1_g.png}
+
+\subquestion{h}{The extremely tired students hated syntactic trees with a passion.}
+
+\includegraphics[width=\textwidth]{Diagrams/4_1_h.png}
+
+
+\question{13}{STRUCTURAL RELATIONS I9 [Application of Skills; Advanced] Consider the following tree:}
+
+\subquestion{1}{What node(s) dominate $N_3$ \emph{grocer}?}
+
+\begin{quote}
+  TP, VP, PP, NP
+\end{quote}
+
+\subquestion{2}{What node(s) immediately dominate $D_3$ \emph{the}?}
+
+\begin{quote}
+  $NP_3$
+\end{quote}
+
+\subquestion{3}{Do T \emph{will} and V \emph{buy} form a constituent?}
+
+\begin{quote}
+  yes
+\end{quote}
+
+\subquestion{4}{What nodes does $N_1$ \emph{bully} c-command?}
+
+\begin{quote}
+  $D_1$, $N_1$
+\end{quote}
+
+\subquestion{5}{What nodes does $NP_1$ \emph{the big bully}
+  c-command?}
+
+\begin{quote}
+VP
+\end{quote}
+
+\subquestion{6}{What is V \emph{buy}’s mother?}
+
+\begin{quote}
+  VP
+\end{quote}
+
+\subquestion{7}{What nodes does T \emph{will} precede?}
+
+\begin{quote}
+VP
+\end{quote}
+
+\subquestion{8}{List all the sets of sisters in the tree.}
+
+\begin{quote}
+NP, T, VP
+
+D, AdjP, N
+
+V, NP, PP
+
+P, NP
+
+D, N
+\end{quote}
+
+\subquestion{9}{What is the PP’s mother?}
+
+\begin{quote}
+  VP
+\end{quote}
+
+\subquestion{10}{Do $NP_1$ and VP asymmetrically or symmetrically c-command one
+another?}
+
+\begin{quote}
+$NP_1$ asymmetrically  c-commands VP.
+\end{quote}
+
+\subquestion{11}{List all the nodes c-commanded by V.}
+
+\begin{quote}
+  D, N, AdjP, Adj
+\end{quote}
+
+\subquestion{12}{What is the subject of the sentence?}
+
+\begin{quote}
+  The big bully
+\end{quote}
+
+\subquestion{13}{What is the object of the sentence?}
+
+\begin{quote}
+  the grocer
+\end{quote}
+
+\subquestion{14}{What is the object of the preposition?}
+
+\begin{quote}
+  apples
+\end{quote}
+
+\subquestion{15}{Is $NP_3$ a constituent of VP?}
+
+\begin{quote}
+  Yes.
+\end{quote}
+
+
+\subquestion{16}{What node(s) is $NP_3$ an immediate constituent of?}
+
+\begin{quote}
+  $NP_3$ is an immediate constituent of PP
+\end{quote}
+
+\subquestion{17}{What node(s) does VP exhaustively dominate?}
+
+\begin{quote}
+  V, $NP_2$, $N_2$, PP, P, $NP_3$ $N_3$, $D_3$
+\end{quote}
+
+\subquestion{18}{What is the root node?}
+
+\begin{quote}
+  TP
+\end{quote}
+
+\subquestion{19}{List all the terminal nodes.}
+
+\begin{quote}
+$D_1$, 
+\end{quote}
+
+\subquestion{20}{What immediately precedes $N_3$ grocer?}
+
+\begin{quote}
+$D_1$, Adj, $N_1$, T, V, $N_2$, P, $D_3$, $N_3$ 
+\end{quote}
+
+\question{16}{HIAKI}
+\begin{quote}
+[Data Analysis; Intermediate]
+Consider the data from the following sentences of Hiaki (also known as
+Yaqui), an Uto-Aztecan language from Arizona and Mexico. Data have
+been simplified. (Data from Dedrick and Casad 1999.)
+\end{quote}
+
+\subquestion{a}{Tékil né-u ’aáyu-k.
+work me-for is
+“There is work for me.” (literally: “Work is for me.”)}
+
+\subquestion{b}{Hunáa’a yá’uraa hunáka’a hámutta nokriak. that chief
+  that woman defend “That chief defended that woman.”}
+
+\subquestion{Taáwe tótoi’asó’olam káamomólim híba-tu’ure. Hawk chickens young like
+“(The) hawk likes young chickens.”}
+
+\subquestion{d}{Tá’abwikasu ’áma yépsak.
+different-person there arrived
+“A different person arrived there.” (assume there is an adverb not a N)
+Assume the rules AdjP  Adj and AdvP  Adj and answer the following
+questions.}
+
+\begin{enumerate}
+\item What is the NP rule for Hiaki?
+
+\begin{quote}
+  NP $\rightarrow$ (D) N (AdjP+) (AdvP)
+\end{quote}
+
+\item Do you need a PP rule for Hiaki? Why or why not?
+  
+  \begin{quote}
+    No. Prepositions are treated as verbs, so an NP can have an AdvP
+    replacing what is normally the NP dominated by a PP.
+  \end{quote}
+
+\item What is the VP rule for Hiaki?
+
+  \begin{quote}
+    VP $\rightarrow$ V
+  \end{quote}
+
+\item What is the TP rule for Hiaki?
+  
+  \begin{quote}
+    TP $\rightarrow$ NP VP
+  \end{quote}
+
+\item Using the rules you developed in questions 1–4, draw the tree for
+sentences (b, c, d).
+
+\includegraphics{Diagrams/4_16_b.png}
+
+\includegraphics{Diagrams/4_16_c.png}
+
+\includegraphics{Diagrams/4_16_d.png}
+
+\item What is the subject of sentence (b)?
+
+\begin{quote}
+  \emph{That chief} is the subject.
+\end{quote}
+
+\item Is there an object in (d)? If so, what is it?
+
+  \begin{quote}
+    \emph{There} is the object.
+  \end{quote}
+
+\item What node(s) does hunáa’a c-command in (b)?
+  
+  \begin{quote}
+    D \emph{that} and N \emph{woman}
+  \end{quote}
+
+\item What node(s) does hunáa’a yá’uraa c-command in (b)?
+
+  \begin{quote}
+    D \emph{that} and N \emph{woman}
+  \end{quote}
+
+\item What does ’áma precede in (d)?
+
+\begin{quote}
+’áma precedes yépsak.
+\end{quote}
+
+\item What node immediately dominates káamomólim in (c)?
+
+\begin{quote}
+  NP dominates AdjP \emph{káamomólim}.
+  \end{quote}
+
+\item What nodes dominate káamomólim in (c)?
+
+\begin{quote}
+  TP and NP dominates AdjP \emph{káamomólim}.
+  \end{quote}
+
+\item What node immediately precedes káamomólim in (c)?
+
+\begin{quote}
+  N \emph{tótoi’asó’olam} immediately precedes káamomólim.
+\end{quote}
+
+\item What nodes precede káamomólim in (c)?
+
+  \begin{quote}
+   N \emph{Taáwe} and  N \emph{tótoi’asó’olam} precede káamomólim.
+  \end{quote}
+
+\item Does káamomólim c-command táawe in (c)?
+  
+  \begin{quote}
+    Yes. It does.
+  \end{quote}
+
+\item Do hunáka’a and hámutta symmetrically c-command one another in
+(b)?
+
+\begin{quote}
+  Yes, they do.
+\end{quote}
+
+
+\end{enumerate}
+
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Carnie Chapter 5}
+  \hrulefill \par}
+
+\question{4}{BINDING PRINCIPLES}
+\begin{quote}
+[Application of Skills, Data Analysis; Intermediate]
+Explain why the following sentences are ungrammatical. For each
+sentence, say what the binding domain of the NP causing the problem
+is, if it is c- commanded by its binder (antecedent), and name the
+binding condition that is violated.
+\end{quote}
+
+\subquestion{a}{*$Michael_i$ loves $him_i$.}
+
+\begin{quote}
+  Michael is the antecedent of him and they c-command each other. The Binding Domain is
+  \emph{Michael loves him}. This violates Principle B because
+  \emph{him} is no longer free within the binding domain.
+\end{quote}
+
+\subquestion{b}{*Hei loves Michaeli.}
+
+\begin{quote}
+  Michael is the antecedent of he and they c-command each other. The Binding Domain is
+  \emph{He loves Michael}. This violates Principle B because
+  \emph{he} is no longer free within the binding domain.
+\end{quote}
+
+\subquestion{c}{*$Michael_i$’s $father_j$ loves $himself_i$.}
+
+\begin{quote}
+  Michael is the antecedent of himself. The Binding Domain is
+  \emph{Michael's father loves himself}. This violates locality
+  constraint because \emph{himself} is local to \emph{father} instead
+  of its antecedent \emph{Michael}.
+\end{quote}
+
+\subquestion{d}{*Michaeli’s fatherj loves himj.}
+
+\begin{quote}
+  father is the antecedent of him. The Binding Domain is
+  \emph{Michael's father loves him}. This violates Principle B
+   because \emph{him} is not free within the binding domain.
+\end{quote}
+
+\subquestion{e}{*Susani thinks that John should marry herselfi.}
+
+\begin{quote}
+  Susan is the antecedent of herself. The Binding Domain is
+  \emph{John should marry herself}. This violates Binding Principle A 
+  because \emph{herself} is not bound within the binding domain.
+\end{quote}
+
+\subquestion{f}{*John thinks that Susani should kiss heri.}
+
+\begin{quote}
+  Susan is the antecedent of her. The Binding Domain is
+  \emph{Susan should kiss her}. This violates Principle B
+   because \emph{her} is not free within the binding domain.
+\end{quote}
+
+\question{CHALLENGE PROBLEM SET 1}{WH-QUESTIONS}
+\begin{quote}
+[Critical Thinking; Challenge]
+What problem(s) does the following sentence make for the binding theory as we have sketched it in this chapter? Can you think of a solution? (Hint: con- sider the non-question form of this sentence John despises these pictures of himself.)
+Which pictures of himselfi does Johni despise? Assume the following
+tree for this sentence:
+\end{quote}
+
+\begin{quote}
+  The non-question form of the sentence violates the locality
+  constraint because \emph{himself} is not near the antecedent
+  \emph{John}. Also, due to the complementizer \emph{does},
+  \emph{himself} and \emph{John} are not in the same binding
+  domain. This then violates Principle A. Still, this sentence seems
+  grammatical to me.
+
+  The rule could be changed to target clauses or binding domains with
+  more than one possible antecedent.
+\end{quote}
+
+\newpage
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Notes and Instructor Comments}
+  \hrulefill \par}
+\end{document}

@@ -1,0 +1,48 @@
+#+TITLE: Program #10: “Curses; Worms!” README
+
+* Compiling and Installing
+---------------------
+
+1. run make
+2. After running make, binaries will appear in $PWD
+
+
+* Cleaning
+---------
+
+1. run make clean
+
+* Structure
+---------
+The project looks like this structurally:
+
+#+BEGIN_EXAMPLE
+prog10
+   \
+    +-- AUTHORS
+    +-- COPYING
+    +-- ChangeLog
+    +-- INSTALL
+    +-- Makefile
+    +-- Makefile.am
+    +-- NEWS
+    +-- README
+    +-- configure.ac
+    +-- depcomp
+    +-- install-sh
+    +-- missing
+    +-- src
+            \
+             +-- Makefile.am
+             +-- logging.h
+             +-- prog10.c
+             +-- prog10.h
+#+END_EXAMPLE
+
+** prog10 
+
+The project directory. When programs are compiled, they will appear here.
+
+** src
+
+Defines the source path. This is where the source files are. 

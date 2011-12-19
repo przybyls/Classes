@@ -1,0 +1,83 @@
+#!/bin/bash
+###############################################################################
+#  Assignment:  Program #6 part 4 tex2pdf7.bsh
+#
+#      Author:  Leo Przybylski
+#    Language:  Bourne Again Shell Scripting Language
+#  To Compile:  pfftttt... yeah, sure
+#
+#       Class:  CSc 352 — Systems Programming and UNIX
+#  Instructor:  Dr. Lester McCann
+#    Due Date:  October 13th, 2011, at the beginning of class
+#
+###############################################################################
+# Description: 
+#
+#       Input: 
+#
+#      Output:  
+#
+#   Algorithm:  
+#
+#  Known Bugs:  
+#
+###############################################################################
+
+# tex2pdf6.bsh (final version)
+# This version adds code to silence all of that output from latex w/o
+# destroying our ability to handle errors that latex might detect.
+#
+# Problems that remain (and that _I_ won't fix!)
+#   (1) dvips is loud, too...   (easy fix)
+#   (2) If the user gives a name like "foo.tex.bak", the sed command won't
+#       strip the correct part from the name.   (harder fix)
+
+
+# If the user didn't give us a first command-line argument, display usage
+# instructions and halt.
+
+if [ -z $1 ]; then
+    echo
+    echo "This script uses latex, dvips, and ps2pdf to format a (La)TeX"
+    echo ".tex file into a PDF file."
+    echo
+    echo "To use:  $(basename $0) <filename>"
+    echo
+    exit 1
+fi
+
+
+# If the filename contains a period, strip it away and anything following it.
+# (Question for thought:  What if it contains multiple periods?)
+
+filename=`echo $1 | sed 's/^\([^.]*\)\..*/\1/'`
+
+
+# If $filename.tex isn't readable, let the user know, and stop the script.
+
+if [ ! -r $filename.tex ]; then
+    echo "Error: $filename.tex is not a readable file in the current directory."
+    echo "Please check your (La)TeX source file."
+    exit 2
+fi
+
+
+# Test-execute latex to see if it terminates successfully (that is,
+# see if the user's (La)TeX file is legal (La)TeX)
+
+latex -interaction=batchmode $filename.tex > /dev/null 2>&1
+
+if (( $? != 0 )); then      # If termination wasn't successful, show errors
+    latex $filename.tex
+    echo
+    echo
+    echo "Fix your (La)TeX error(s) before re-running this script."
+    echo
+    exit 3
+else                        # Otherwise, finish conversion to PDF
+    dvips $filename.dvi > /dev/null 2>&1
+    ps2pdf $filename.ps $filename.pdf > /dev/null 2>&1
+fi
+
+exit 0        # Successful termination
+

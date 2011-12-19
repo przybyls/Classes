@@ -1,0 +1,174 @@
+#!/bin/bash
+#
+# Copyright 2011 Leo Przybylski
+#
+# Educational Community License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may
+# obtain a copy of the License at
+# 
+# http://www.osedu.org/licenses/ECL-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an "AS IS"
+# BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+# or implied. See the License for the specific language governing
+# permissions and limitations under the License.
+###############################################################################
+
+###############################################################################
+#  Assignment:  Program #6 part 1 Really Basic Bash Scripting.
+#
+#      Author:  Leo Przybylski
+#    Language:  Bourne Again Shell Scripting Language
+#  To Compile:  pfftttt... yeah, sure
+#
+#       Class:  CSc 352 — Systems Programming and UNIX
+#  Instructor:  Dr. Lester McCann
+#    Due Date:  September 29th, 2011, at the beginning of class
+#
+###############################################################################
+# Description:  Bash script to create a time lapse animated gif from images 
+#               archived from the Gould-Simpson webcam. 
+#
+#       Input:  The year in YYY format (2005 < year < 2012)
+#               The starting month in MM format. (0 < month < 13)
+#               The starting day in DD format.  (0 < day < 32)
+#               The ending month in MM format. (0 < month < 13)
+#               The ending day in DD format. (0 < day < 32)
+#               The time for each day to grab images. This time must be a multiple
+#               of 5 because images are captured every 5 minutes. (-0001 < time < 2400)
+#               Time must be in 24-hour format
+#
+#      Output:  The result is an animated gif in the current working directory
+#               named przybyls.gif
+#
+#   Algorithm:  Iterates over months, then days in the month to determine what
+#               images to use. If months intersect, then the entire month
+#               in between is applied. Starting and ending months are special cases.
+#               The starting month images begin on the start day. The ending month
+#               images end on the end day. Otherwise, all normal rules apply.
+#
+#  Known Bugs:  
+#
+###############################################################################
+
+usage() {
+    cat <<EOF
+Usage:
+    $0 year startMonth startDay endMonth endDay time
+        year       - year of images in YYYY format between 2006 and the current year
+        startMonth - starting month of the date range in MM format
+        startDay   - starting day of the month of the date range in DD format
+        endMonth   - ending month of the date range in MM format
+        endDay     - ending day of the month of the date range in DD format
+        time       - 24-hour clock time in 5 minute increments
+EOF
+}
+
+ERRORS=0
+TMPDIR=/tmp/przybyls
+
+if [ $# -lt 6 ]
+then
+    echo "Wrong number of arguments!"
+    usage
+exit 1
+fi
+
+YEAR=$1
+
+if [ "$YEAR" -lt "2006" ]
+then
+    echo "Year must be 2006 or later"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+if [ "$YEAR" -gt $(date "+%Y") ]
+then
+    echo "Year must be $(date '+%Y') or earlier"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+SMONTH=$2
+
+if [ "$SMONTH" -gt "12" -o "$SMONTH" -lt "1" ]
+then
+    echo "Starting month is out of range"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+SDAY=$3
+
+if [ "$SDAY" -gt "31" -o "$SDAY" -lt "1" ]
+then
+    echo "Starting day is out of range"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+EMONTH=$4
+
+if [ "$EMONTH" -gt "12" -o "$EMONTH" -lt "1" ]
+then
+    echo "Ending month is out of range"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+EDAY=$5
+
+if [ "$EDAY" -gt "31" -o "$EDAY" -lt "1" ]
+then
+    echo "Ending day is out of range"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+HOUR=$6
+
+if [ "$HOUR" -gt "2359" -o "$HOUR" -lt "0" ]
+then
+    echo "Time is out of range"
+    let "ERRORS=$ERRORS + 1"
+fi
+
+if [ "$ERRORS" -gt "0" ]
+then
+    usage
+    exit 1
+fi
+
+WCPATH=/cs/webcam
+mkdir -p $TMPDIR
+
+FILES=
+for month in $(seq $SMONTH $EMONTH)
+do
+    month=$(printf "%02d" $month)
+    start=$SDAY
+    stop=$EDAY
+    
+    if [ "$SMONTH" -ne "$EMONTH" ]
+    then
+        if [ "$EMONTH" -ne "$month" ]
+        then
+            stop=31
+        fi 
+        if [ "$SMONTH" -ne "$month" ]
+        then
+            start=0
+        fi
+    fi
+
+    for day in $(seq $start $stop)
+    do
+        day=$(printf "%02d" $day)
+        cp "$WCPATH/$YEAR/$month/$day/$month$day$HOUR".jpg $TMPDIR > /dev/null 2>&1
+        FILES="$FILES $TMPDIR/$month$day$HOUR.jpg"
+    done
+done 
+convert -delay 10 $FILES przybyls.gif
+        
+
+
+rm -rf $TMPDIR
+
+exit 0
+

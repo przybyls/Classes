@@ -1,0 +1,223 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{LING-300: Homework 3}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+  \maketitle
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Carnie Chapter 3}
+  \hrulefill \par}
+\question{1}{TREES: NPS, ADJPS AND ADVPS}
+\begin{quote}
+  [Application of Skills; Basic]
+  Draw the trees for the following AdjPs, AdvPs, and NPs: 
+\end{quote}  
+
+\subquestion{a}{very smelly}
+
+\begin{quote}
+\includegraphics{Diagrams/3_1_a.png}
+\end{quote}
+
+\subquestion{b}{too quickly}
+
+\begin{quote}
+\includegraphics{Diagrams/3_1_b.png}
+\end{quote}
+
+\subquestion{c}{much too quickly}
+
+\begin{quote}
+\includegraphics{Diagrams/3_1_c.png}
+\end{quote}
+
+
+\subquestion{d}{very much too quickly}
+
+\begin{quote}
+\includegraphics{Diagrams/3_1_d.png}
+\end{quote}
+
+\subquestion{e}{the old shoelace}
+
+\begin{quote}
+\includegraphics{Diagrams/3_1_e.png}
+\end{quote}
+
+\subquestion{g}{these very finicky children}
+
+\begin{quote}
+\includegraphics{Diagrams/3_1_g.png}
+\end{quote}
+
+\question{4}{ENGLISH}
+\begin{quote}
+[Application of Skills and Knowledge; Basic to Advanced]
+Draw phrase structure trees and bracketed diagrams for each of the
+follow- ing sentences, indicate all the categories (phrase (e.g., NP)
+and word level (e.g., N)) on the tree. Use the rules given above in
+the “Ideas” summary of this chapter. Be careful that items that modify
+one another are part of the same constituent. Treat words like can,
+should, might, was, as instances of the category T (tense). (Sentences
+d–h are from Sheila Dooley.)
+\end{quote}
+
+\subquestion{a}{The kangaroo hopped over the truck.}
+
+\begin{quote}
+ [$_{TP}$[$_{NP}$The kangaroo] [$_{VP}$hopped [$_{PP}$over [$_{NP}$the truck]]]].
+
+\includegraphics{Diagrams/3_4_a.png}
+\end{quote}
+
+\subquestion{b}{I haven’t seen this sentence before. [before is a P,
+  haven’t is a T]}
+
+\begin{quote}
+  [$_{TP}$[$_{NP}$I] [$_{T}$haven't] [$_{VP}$seen [$_{NP}$this sentence] [$_{AdvP}$before]]].
+
+\includegraphics{Diagrams/3_4_b.png}
+\end{quote}
+
+\subquestion{c}{Susan will never sing at weddings. [never is an Adv]}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$Susan] [$_{T}$will] [$_{VP}$[$_{AdvP}$never] sing [$_{PP}$at weddings]]].
+
+\includegraphics{Diagrams/3_4_c.png}
+\end{quote}
+
+\subquestion{d}{The officer carefully inspected the license.}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$The officer] [$_{VP}$[$_{Advp}$carefully] inspected [$_{NP}$the license]]].
+
+\includegraphics{Diagrams/3_4_d.png}
+\end{quote}
+
+
+\question{6}{HIXKARYANA}
+\begin{quote}
+[Application of Skills; Basic/Intermediate]
+Look carefully at the following data from a Carib language from Brazil
+(the glosses have been slightly simplified from the original). In your
+analysis do not break apart words. (Data from Derbyshire 1985.)
+\end{quote}
+
+\begin{enumerate}
+\item Kuraha yonyhoryeno biyekomo. bow made boy “The boy
+  made a bow.”
+\item Newehyatxhe woriskomo komo. take-bath women all “All
+  the women take a bath.”
+\item Toto heno komo yonoye kamara. person dead all ate jaguar “The jaguar ate all the dead people.”
+\end{enumerate}
+
+Now answer the following questions about Hixkaryana:
+
+\subquestion{1}{Is there any evidence for a determiner category in
+  Hixkaryana? Be sure to consider quantifier words as possible
+  determiners (like some and all).}
+Yes, all is used to direct context toward a non-descript set of things.
+
+\subquestion{2}{Posit an NP rule to account for Hixkaryana. (Be careful to do it
+  for the second line, the word-by-word gloss, in these examples not
+  the third line.) Assume there is an AdjP rule: AdjP  Adj.}
+
+\begin{quote}
+  NP$\rightarrow$N (Adj+) (D)
+\end{quote}
+
+\subquestion{3}{Posit a VP rule for Hixkaryana.}
+
+\begin{quote}
+VP$\rightarrow$ (NP) V
+\end{quote}
+
+\subquestion{4}{Posit a TP rule for Hixkaryana.}
+
+\begin{quote}
+  TP$\rightarrow$ VP NP
+\end{quote}
+
+\subquestion{5}{What is the part of speech of newehyatxhe? How do you
+  know?}
+
+\begin{quote}
+  verb phrase. It is the word for taking a bath. 
+\end{quote}
+
+\subquestion{6}{Draw the trees for (a) and (c) using the rules you posited above. (Hint: if
+your trees don’t work, then you have probably made a mistake in the
+rules.)}
+
+[$_{TP}$[$_{VP}$[$_{NP}$Kuraha] yonyhoryeno] [$_{NP}$biyekomo]]
+
+\begin{quote}
+  \includegraphics{Diagrams/3_6_61.png}
+\end{quote}
+
+[$_{TP}$[$_{VP}$[$_{NP}$Toto [$_{AdjP}$heno] [$_{AdjP}$komo]] yonoye] [$_{NP}$kamara]]
+
+\begin{quote}
+\includegraphics{Diagrams/3_6_62.png}
+\end{quote}
+
+\subquestion{7}{Give bracketed diagrams for the same sentences.}
+
+\question{9}{STRUCTURE}
+\begin{quote}
+[Application of Knowledge; Intermediate]
+In the following sentences a sequence of words is marked as a
+constituent with square brackets. State whether or not it is a real
+constituent, and what criteria (that is constituency tests) you
+applied to determine that result.
+\end{quote}
+
+\subquestion{a}{Susanne gave [the minivan to Petunia].}
+
+\begin{quote}
+  ``the minivan to Petunia'' is not a constituent. It fails the
+  replacement, movement, and standalone constituency tests. It is
+  actually 2 constituents.
+\end{quote}
+
+\subquestion{b}{Clyde got [a passionate love letter from Stacy].}
+
+\begin{quote}
+  ``a passionate love letter from Stacy'' is not a constituent. It passes
+  the replacement test, but not the standalone or movement tests. Like
+  a, this is also more like 2 constituents than 1.
+\end{quote}
+
+\newpage
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Notes and Instructor Comments}
+  \hrulefill \par}
+\end{document}

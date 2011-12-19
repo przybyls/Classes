@@ -1,0 +1,195 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{LING-300: Homework 1}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+  \maketitle
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Carnie Chapter 2}
+  \hrulefill \par}
+
+\question{1}{PART OF SPEECH 19}
+\begin{quote}
+[Application of Skills; Basic]
+Identify the main parts of speech (i.e., Nouns, Verbs,
+Adjectives/Adverbs, and Prepositions) in the following
+sentences. Treat hyphenated words as single words:
+\end{quote}
+
+\subquestion{a}{The old rusty pot-belly stove has been replaced.}
+\begin{quote}
+  The (D) old (Adj) rusty (Adj) pot-belly (Adj) stove (N) has (T) been
+  (T) replaced (V).
+\end{quote}
+
+\subquestion{b}{The red-haired assistant put the vital documents
+  through the new efficient shredder.}
+
+\begin{quote}
+  The (D) red-haired (Adj) assistant (N) put (V) the (D) vital (Adj)
+  documents (N) through (P) the (D) new (Adj) efficient (Adj) shredder (N).
+\end{quote}
+
+\subquestion{c}{The large evil leathery alligator complained to his aging keeper about his
+extremely unattractive description.}
+
+\begin{quote}
+  The (D) large (Adj) evil (Adj) leathery (Adj) alligator (V)
+  complained (V) to (P) his (D) aging (Adj) keeper (N) about (P) his
+  (N) extremely (Adj) unattractive (Adj) description (N).
+\end{quote}
+
+\subquestion{d}{I’ve just eaten the last piece of chocolate cake.}
+
+\question{2}{NOOTKA}
+\begin{quote}
+[Application of Skills; Intermediate]
+Consider the following data from Nootka (data from Sapir and Swadesh 1939), a language spoken in British Columbia, Canada and answer the questions that follow the grey text box.
+a) Mamu:k-ma qu:ʔas-ʔi. working-PRES man-DEF “The man is working.”
+b) Qu:ʔas-ma mamu:k-ʔi. man-PRES working-DEF “The working one is a man.”
+(The : mark indicates a long vowel. ʔ is a glottal stop. PRES in the second line means “present tense,” DEF means “definite determiner” (the).)
+Questions about Nootka:
+\end{quote}
+
+\subquestion{1}{In sentence a, is Qu:ʔas functioning as a verb or a
+  noun?}
+
+\begin{quote}
+  Noun
+\end{quote}
+
+\subquestion{2}{In sentence a, is Mamu:k functioning as a verb or a
+  noun?}
+
+\begin{quote}
+  Verb
+\end{quote}
+
+\subquestion{3}{In sentence b, is Qu:ʔas a verb or a noun?}
+
+\begin{quote}
+Verb
+\end{quote}
+
+\subquestion{4}In sentence b, is Mamu:k a verb or a noun?
+
+\begin{quote}
+  Noun
+\end{quote}
+
+\subquestion{5}{What criteria did you use to tell what is a noun in Nootka and what is a
+verb?}
+
+\begin{quote}
+  Tense and the phrase structure. Nootka sentences begin with a verb,
+  so the verb is always first. Also, the first word happens to have
+  tense associated with it which would make it a verb.
+\end{quote}
+
+\subquestion{6}{How does this data support the idea that there are no semantic criteria
+involved in determining the part of speech?}
+
+\begin{quote}
+  When a word can switch between verb or noun freely, you cannot
+  derive parts of speech from the semantically because it could be
+  either or.
+\end{quote}
+
+\question{6}{SUBCATEGORIES OF NOUNS}
+\begin{quote}[Application of Knowledge; Basic]
+For each of the nouns below put a + sign in the box under the features
+that they have. Note that some nouns might have a plus value for more
+than one feature. The first one is done for you. Do not mark the minus
+(–) values, or the values for which the word is not specified; mark
+only the plus values!\end{quote}
+
+\begin{tabular}{|l|c|c|c|c|c|}
+  \hline \\
+  Noun & Plural & Count & Proper & Pronoun & Anaphor\\
+  \hline \\
+  Cats & + & + & & & \\
+  \hline \\
+  Milk & & & & & \\
+  \hline \\
+  New York & & & + & & \\
+  \hline \\
+  They & + & & & + & \\
+  \hline \\
+  People & + & + & & & \\
+  \hline \\
+  Language & & & & & \\
+  \hline \\
+  Printer & & & & & \\
+  \hline \\
+  Himself & & & & & + \\ 
+  \hline \\
+  Wind & & & & & \\
+  \hline \\
+  Lightbulb & & & & & \\
+  \hline
+\end{tabular}
+
+\question{7}{SUBCATEGORIES OF VERBS}
+\begin{quote}
+[Application of Knowledge; intermediate]
+For each of the verbs below, list whether they are intransitive,
+transitive or ditransitive and list which features they take (see the
+list in (32) as an exam- ple). In some cases they may allow more than
+one feature. E.g., the verb eat is both $\left[NP \_\_ NP\right]$ and $\left[NP \_\_\_ \right]$. Give
+an example for each feature:
+\begin{quote}
+  \emph{spray, sleep, escape, throw, wipe, say, think, grudge, thank, pour,
+    send, promise, kiss, arrive}
+\end{quote}
+
+\begin{description}
+\item [spray] transitive (NP\_\_NP)
+\item [sleep] intransitive (NP\_\_) and transitive (NP\_\_NP)
+\item [escape] intransitive (NP\_\_), transitive (NP\_\_NP), and transitive (NP\_\_PP)
+\item [throw] transitive (NP\_\_NP) and ditransitive (NP\_\_NP PP)
+\item [wipe] transitive (NP\_\_NP) and ditransitive (NP\_\_NP PP)
+\item [say] transitive (NP\_\_{NP/CP}) and ditransitive (NP\_\_NP PP)
+\item [think] transitive (NP\_\_{NP/CP/PP}) 
+\item [grudge] intransitive (NP\_\_)
+\item [thank] transitive (NP\_\_{NP/CP}) and ditransitive (NP\_\_NP PP)
+\item [pour] transitive (NP\_\_NP) and ditransitive (NP\_\_NP PP)
+\item [send] transitive (NP\_\_NP) and ditransitive (NP\_\_NP PP)
+\item [promise] transitive (NP\_\_NP) and ditransitive (NP\_\_NP PP)
+\item [kiss] transitive (NP\_\_NP) and ditransitive (NP\_\_NP PP)
+\item [arrive] intransitive (NP\_\_) and transitive (NP\_\_{NP/PP})
+\end{description}
+
+\end{quote}
+
+\newpage
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Notes and Instructor Comments}
+  \hrulefill \par}
+\end{document}

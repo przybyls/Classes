@@ -1,0 +1,153 @@
+%
+% File:  shell.tex  (L. McCann, 2005/08/25)
+%
+% Purpose:  A simple sample LaTeX file for students to examine.
+%
+% To format this document on one of the lab's Linux workstations:
+%
+%   (1) Make sure this file is named shell.tex
+%   (2) Type this:  latex shell.tex
+%   (3) Type this:  dvips -P pdf -t letter -o shell.ps shell.dvi
+%
+%   That gives you the formatted document in Postscript.  If you want PDF:
+%
+%   (4) Type this:  ps2pdf shell.ps shell.pdf
+%
+% I have a little shell script to do these commands; saves typing:
+%
+%   latex $1.tex
+%   dvips -P pdf -t letter -o $1.ps $1.dvi
+%   ps2pdf $1.ps $1.pdf
+%
+% Name the file something short but sweet (say, frmt), make it executable
+% (chmod +x frmt), and invoke with just the name of the .tex file as the
+% argument (frmt shell).
+%
+% Formatting on other systems will likely be different; check your
+% local documentation.
+%
+
+
+\documentclass{article}         % other are available, like book
+
+\usepackage{amssymb}            % adds more math symbols
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\newtheorem{conjecture}{Conjecture}  % The 'Conjecture' proof style I like
+
+\begin{document}
+\pagestyle{plain}               % 'empty' = no page #s; 'plain' = page #s
+
+Your stuff starts here.
+
+\begin{center}
+You can center things.
+\end{center}
+
+You can {\small vary} the {\large size} of the text.
+
+\textbf{Bold} and \textit{italics} and \underline{underlining} are available.
+
+\vspace*{2cm}
+
+You can leave big gaps between paragraphs.
+
+You can leave big \hspace*{2.0cm} gaps within lines, too.
+
+% Comments start with percent and run to the end of the line.
+
+\begin{itemize}
+\item You
+\item can
+\item make
+\item lists.
+\end{itemize}
+
+\begin{enumerate}
+\item They
+\item can
+\item be
+\item numbered
+
+  \begin{enumerate} 
+  \item and
+  \item nested.
+  \end{enumerate}
+
+\end{enumerate}
+
+You can force a page break whenever you wish.
+
+\newpage
+
+Welcome to page 2!
+
+You can create tables:
+
+\begin{tabular}{|l|c|r|}
+\multicolumn{3}{c}{Span all columns of the table!} \\
+\hline
+left & center & right \\
+xxxxxxxxxx & xxxxxxxxxx & xxxxxxxxxx \\
+\hline
+\end{tabular}
+
+\vspace*{1.0cm}
+
+\textbf{\large But what you \underline{really} want to see
+examples of \ldots math!}
+
+Math expressions can be inline:  $2x^{12} + 7a_0 - 9$.
+
+Or you can format them to stand alone:
+
+\begin{displaymath}
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+\end{displaymath}
+
+Basic math symbols include $<$, $\le$, $>$, $\ge$, $\land$, $\lor$,
+$\oplus$, $\cap$, $\cup$, $\subset$, $\subseteq$, $\equiv$, $\neq$,
+$\not\equiv$, and $\to$.
+
+You can indicate expression negation:  $\neg x$ or $\overline{x}$.
+
+Sometimes you want extra space in an expression:
+$a \equiv b$ vs. $a \; \equiv \; b$.
+
+You can change the styles of some things easily:  $\prod_{i=1}^{5} i$  or
+$\prod\limits_{i=1}^{5} i$.
+
+Of course, you can also format proofs:
+
+
+  \begin{conjecture}  % See definition of conjecture theorem type, above.
+  If $n$ is even, then $n^2$ is also even.
+  \\ \\
+  \textup{\underline{Proof (Direct)}:} Assume $n$ is even.
+  Because $n$ is even,  $n = 2k$, where $k$ is some
+  integer.  $n^2 = (2k)^2 = 4k^2$.  Because $4k^2 = 2(2k^2)$, $4k^2$ is an
+  even number, and thus so is $n^2$,
+  \\ \\
+  Therefore, if $n$ is even, then $n^2$ is also even.
+  \hfill $\diamondsuit$
+  \end{conjecture}
+
+\vfill
+
+Want to learn more?  Check
+\verb+http://www.cs.arizona.edu/people/mccann/latex.html+
+for information sources.
+
+
+\end{document}
+

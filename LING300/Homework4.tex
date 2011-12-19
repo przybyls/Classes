@@ -1,0 +1,138 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{LING-300: Homework 4}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+  \maketitle
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Carnie Chapter 3}
+  \hrulefill \par}
+\question{4}{ENGLISH}
+\begin{quote}
+[Application of Skills and Knowledge; Basic to Advanced]
+Draw phrase structure trees and bracketed diagrams for each of the
+follow- ing sentences, indicate all the categories (phrase (e.g., NP)
+and word level (e.g., N)) on the tree. Use the rules given above in
+the “Ideas” summary of this chapter. Be careful that items that modify
+one another are part of the same constituent. Treat words like can,
+should, might, was, as instances of the category T (tense). (Sentences
+d–h are from Sheila Dooley.)
+\end{quote}
+
+\subquestion{e}{Every cat always knows the location of her favorite catnip toy.}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$Every cat] [[$_{AdvP}$always] knows [$_{NP}$the location] [$_{PP}$of [$_{NP}$her [$_{AdjP}$favorite] [$_{AdjP}$catnip] toy]]]].
+
+\includegraphics[width=\textwidth]{Diagrams/3_4_e.png}
+\end{quote}
+
+\subquestion{f}{The cat put her catnip toy on the plastic mat.}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$The cat] [$_{VP}$put [$_{NP}$her [$_{AdjP}$catnip] toy] [$_{PP}$on [$_{NP}$the plastic mat]]]].
+
+\includegraphics[width=\textwidth]{Diagrams/3_4_f.png}
+\end{quote}
+
+\subquestion{g}{The very young child walked from school to the store.}
+
+\begin{quote}
+[$_{TP}$[The [$_{AdjP}$very [$_{AdjP}$young]] child] [$_{VP}$walked [$_{PP}$from [$_{NP}$school]] [$_{PP}$to [$_{NP}$the store]]]].
+
+\includegraphics[width=\textwidth]{Diagrams/3_4_g.png}
+\end{quote}
+
+\subquestion{h}{John paid a dollar for a head of lettuce.}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$John] [$_{VP}$paid [$_{NP}$a dollar] [$_{PP}$for [$_{NP}$a head [$_{PP}$of [$_{NP}$lettuce]]]]]].
+
+\includegraphics{Diagrams/3_4_h.png}
+\end{quote}
+
+\subquestion{i}{Teenagers drive rather quickly.}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$Teenagers] [$_{VP}$drive [$_{AdvP}$rather [$_{AdvP}$quickly]]]].
+
+\includegraphics{Diagrams/3_4_i.png}
+\end{quote}
+
+\subquestion{j}{A clever magician with the right equipment can fool the audience
+easily.}
+
+\begin{quote}
+[$_{TP}$[$_{NP}$A clever magician] [$_{PP}$with [$_{NP}$the [$_{AdjP}$right] equipment]] [$_{VP}$[$_{AdvP}$can] fool [$_{NP}$the audience] [$_{AdvP}$easily]]]].
+
+\includegraphics[width=\textwidth]{Diagrams/3_4_j.png}
+\end{quote}
+
+
+\question{8}{AMBIGUITY}
+\begin{quote}
+[Application of Knowledge and Skills; Basic to Intermediate]
+The following English sentences are all ambiguous. Provide a
+paraphrase (a sentence with roughly the same meaning) for each of the
+possible meanings, and then draw (two) trees of the original sentence
+that distinguish the two meanings. Be careful not to draw the tree of
+the paraphrase. Your two trees should be different from one another,
+where the difference reflects which elements modify what. (For
+sentence (b) ignore the issue of capitalization.) Sentences (c), (d),
+(e), and (f) are ambiguous newspaper headlines taken from
+http://www.fun\-with\-words.com/ambiguous\_headlines.html). You may need
+to assume that old and seven can function as adverbs.
+\end{quote}
+
+\subquestion{a}{John said Mary went to the store quickly.}
+
+\begin{quote}John quickly said Mary went to the store.\end{quote}
+
+    \includegraphics{Diagrams/3_8_a1.png}
+
+\begin{quote}John said Mary quickly went to the store.\end{quote}
+
+    \includegraphics{Diagrams/3_8_a2.png}
+
+\subquestion{a}{I discovered an old English poem.}
+
+\begin{quote}I discovered an Old English style poem.\end{quote}
+
+ \includegraphics{Diagrams/3_8_b1.png}
+ 
+\begin{quote}I discovered an old poem in English.\end{quote}
+
+   \includegraphics{Diagrams/3_8_b2.png}
+
+\newpage
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Notes and Instructor Comments}
+  \hrulefill \par}
+\end{document}

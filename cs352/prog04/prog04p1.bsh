@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Copyright 2011 Leo Przybylski
+#
+# Educational Community License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may
+# obtain a copy of the License at
+# 
+# http://www.osedu.org/licenses/ECL-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an "AS IS"
+# BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+# or implied. See the License for the specific language governing
+# permissions and limitations under the License.
+#
+
+###############################################################################
+#  Assignment:  Program #4 part 1 Really Basic Bash Scripting.
+#
+#      Author:  Leo Przybylski
+#    Language:  Bourne Again Shell Scripting Language
+#  To Compile:  pfftttt... yeah, sure
+#
+#       Class:  CSc 352 — Systems Programming and UNIX
+#  Instructor:  Dr. Lester McCann
+#    Due Date:  September 22th, 2011, at the beginning of class
+#
+###############################################################################
+# Description:  Exercise in bash scripting use of command substitution and
+#               environment variables. Outputs username, current shell, date,
+#               time, and contents of /etc/timezone
+#
+#       Input:  Nutton
+#
+#      Output:  Outputs username, current shell, date,
+#               time, and contents of /etc/timezone
+#
+#   Algorithm:  Just a printing out stuff. No algorithm here.
+#
+#  Known Bugs:  
+#
+###############################################################################
+
+echo Your username is $USER
+echo Your shell is $SHELL
+date "+The date is %Y-%m-%d%nThe time is %H:%M:%S"
+echo Your working directory is $PWD
+
+echo /etc/timezone: $(cat /etc/timezone)
+
+exit 0

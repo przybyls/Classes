@@ -1,0 +1,120 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{CS c352: Homework 3}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+  \maketitle
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{File Permissions}
+  \hrulefill \par}
+Task: Answer the following questions related to UNIX-style ﬁle and directory permissions.
+\question{a}{What is your account’s current umask?}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ umask
+0022
+\end{lstlisting}
+
+\question{b}{Assuming a default permission of 666 \texttt{(-rw-rw-rw-)} for ordinary ﬁles, what must your umask
+be so that a newly-created ﬁle will have an initial permission of \texttt{246 (--w-r--rw-)}? If no such
+umask can exist, explain why not.}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ umask 0420
+przybyls@lectura:~$ touch blah
+przybyls@lectura:~$ ls -l blah
+--w-r--rw- 1 przybyls przybyls 0 2011-09-15 15:17 blah
+\end{lstlisting}
+
+\question{c}{Repeat (b), for an initial permission of 700
+  \texttt{(-rwx------)} instead of 246.}
+
+\begin{quote}
+  I think this is impossible. Here's why. If the default permission is
+  666, then the bit arrangement is:
+
+\begin{tabular}{ccc}
+  110 & 110 & 110 
+\end{tabular}
+
+Many think that the way the permission mask works is that the mask is
+applied to the default permission with a logical or (\^). That is not
+true though. If that were true, it would be easy to find the umask by
+using the logical or
+
+\begin{tabular}{cccc}
+  & 110 & 110 & 110 \\
+\verb|^| & 111 & 000 & 000 \\
+\hline \\
+& 001 & 110 & 110
+\end{tabular}
+
+But that does not work. See below:
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ umask 177
+przybyls@lectura:~$ rm blah 
+przybyls@lectura:~$ touch blah
+przybyls@lectura:~$ ls -l blah
+-rw------- 1 przybyls przybyls 0 2011-09-15 15:27 blah
+\end{lstlisting}
+
+So why does this not work? The reason is that it's not a logical or
+(\verb|^|). It's actually a bitwise \verb|& ~|. Which would lead to no
+viable mask that can be applied to 666 default permission to provide 700.
+
+\end{quote}
+
+\question{On lectura, if you change to your home directory with cd /home/NETID (replacing ‘NETID’
+with your NETID, of course), it’ll work — but your home directory isn’t really at /home/NETID.
+What is the true path to your home directory?}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ ls -l $HOME
+lrwxrwxrwx 1 root wheel 15 2011-09-01 09:39 /home/przybyls ->
+/p2/hp/przybyls
+\end{lstlisting}
+
+\question{What is the difference between chmod +x foo and chmod u+x
+  foo?}
+
+\begin{quote}
+\verb|chmod +x foo| will grant \verb|x| to all, groups, and the
+user. 
+
+\verb|chmod u+x foo| will grant \verb|x| to just the user/owner of foo.
+\end{quote}
+
+
+\newpage
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Notes and Instructor Comments}
+  \hrulefill \par}
+\end{document}

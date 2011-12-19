@@ -1,0 +1,39 @@
+\documentclass[11pt]{report}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{Word Order Project: Bibliography}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+\maketitle
+\begin{thebibliography}{9}
+  \bibitem{Lee2000} King, Ross and Yeon, Jae-Hoon 2000. Elementary Korean
+  \bibitem{Yeon2000} Cho, Young-Mee, Lee, Hyo Sang, Schulz, Carol,
+    Sohn, Ho-Mi, Sohn, Sung-Ock 200. Integrated Korean
+  \bibitem{lang1} Jurafsky, Daniel, Martin, James H., Jurafsky, Dan
+    2008 (2nd ed.) Speech and Language Processing. An Introduction to Natural Language Processing, Computational Linguistics and Speech Recognition
+\end{thebibliography}
+\end{document}

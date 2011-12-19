@@ -1,0 +1,207 @@
+\documentclass[11pt]{report}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{Word Order Project}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+\date{}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+\maketitle
+\abstract{A word order project for LING-300 instructed by Jeff Punske
+  at the University of Arizona. This paper explains the word order for
+the Korean spoken and written language, Hangul as well as the research
+required to arrive at that conclusion. Examples, are given as X' bar
+trees to illustrate proofs and experiments used to determine the word
+order. The case for different types of movement is explicitly
+given. The goal is to first determine the word order, then provide X'
+bar rules for it.}
+
+\section{Introduction}
+The word order for Korean/Hangul may look on the surface to be a
+subject-object-verb (SOV) word order language; however, in exceptional
+cases like tense or wh- movement, it is possible that it is not
+actually so. In order to be a true SOV word order language, Korean
+must be SOV in all cases. This includes the exceptional ones. I will show that Korea actually is an SOV language by contradicting
+it as any other word order, and that this is so especially in cases of
+movement.
+
+\section{Hangul as a Subject-Object-Verb Word Order Language}
+Lanugages such as Irish (VSO) or English (SVO) have distinguishable
+rules about movement and phrase structure that differ from
+Hangul. Before moving onto rules and movement, it should be known that
+unlike the aforementioned languages, Hangul is a head-final
+language. This means that the head appears on the right in a
+tree. Trees tend to branch out away from the head, so a PST for Hangul
+will typically branch left instead of right because of its head-final
+nature. This is important also because rules will appear to be
+inverted right-to-left, but they are not. It is just that Hangul is
+head-final.
+
+Also, as a result of being head-final, complements and adjuncts will
+be on the left of whatever they modify. Since complements are
+head-adjacent, a complement is then directly to the left of whatever
+it is modifying.
+
+\subsection{X-bar Rules}
+I have determined that the X-bar rules for Hangul are as follows:
+
+\begin{tabular}{lcr}
+  CP& $\rightarrow$ & C' \\
+  C' & $\rightarrow$ & VP (C) (VP)\\
+  VP & $\rightarrow$ & (DP) V' \\ 
+  DP & $\rightarrow$ & D' (DP) \\
+  D' & $\rightarrow$ & (D) NP (D) \\
+  NP & $\rightarrow$ & N' PP \\
+  N' & $\rightarrow$ & (AdjP) (N) \\ 
+  AdjP & $\rightarrow$ & AdjP' (AdjP) \\ 
+  AdjP' & $\rightarrow$ & AdjP \\ 
+  PP & $\rightarrow$ & DP P \\ 
+  V' & $\rightarrow$ & (AdvP+) V (TP) (CP) \\ 
+  AdvP & $\rightarrow$ & AdvP' (AdjP+) \\ 
+  AdvP' & $\rightarrow$ & AdvP \\ 
+  TP & $\rightarrow$ & T' \\ 
+  T' & $\rightarrow$ & T   
+\end{tabular}
+
+Since Hangul is head-final and the tree branches left from right,
+then the verb phrase becomes the predominant next to the
+complementizer. The Determiner is then a daughter of the Verb. The
+Determiner is also optional. The reason for this is that the subject
+in Hangul is optional. It is implied. As a result, context becomes
+very important and so a lot of the movement (as I describe later) is
+discourse driven.
+
+Take for example, the phrase \emph{John is likely to leave.} In Hangul
+even John can be implied, so the sentence can possibly be, ``tteonal
+ganeungseong-i nopseubnida'' or ``likely to leave''. This is perfectly
+grammatical in Korean since the subject is determined by the context.
+
+\subsection{Tense}
+Hangul tense modifiers are entirely on the verb. This makes tense
+movement very simple. Observe the following sentences:
+
+\emph{Did you see the dog?}
+
+\begin{tabular}{llll}
+You & dog & saw? \\
+dangsin-eun & gaeleul & bwass-eo?
+\end{tabular}
+
+\includegraphics[scale=0.75]{Diagrams/WordOrder2.png}
+
+Tense is interesting here because it follows the verb and is moved up
+in a ``raising'' technique. 
+
+\emph{``Are you going?''}
+
+\begin{tabular}{llll}
+Going? \\
+ganeungeoya?
+\end{tabular}
+
+\includegraphics[scale=0.75]{Diagrams/WordOrder3.png}
+
+This is interesting because there is movement, but it is from the
+verb to the noun and then the tense takes over as the new
+verb. ``geoya'' implies the intention of doing something and
+``ganeun'' can be considered a separate phrase that makes the verb
+``ga'' (to go) into a noun.
+
+
+\subsection{Binding Theory}
+Pronouns, r-expressions, and anaphors are sparse in Hangul. Pluralized
+pronouns are entirely absent as well as anaphors. Just as in other
+languages though, pronouns must be free within the binding domain. It
+is rare for pronouns to be used due to the emphasis on
+honorifics. Pronouns are devoid of honorifics, and so they are hardly
+ever used. As a result, concepts of accusative and nominative case are
+more difficult to discover.
+
+\subsection{Movement}
+
+\subsubsection{Wh- Movement}
+There is no wh- movement in Hangul. In regular wh- movement, an object
+is moved up to the head of the complementizer phrase. Hangul does not
+require this. Instead, the object simply stays. Let us examine, the
+sentence \emph{Whose book is this?}.
+
+\begin{tabular}{llll}
+this & book & whose & to have \\
+i & chaeg-eun & nugu &ibnikka?
+\end{tabular}
+
+\includegraphics[scale=0.75]{Diagrams/WordOrder1.png}
+
+You can see from sentence that the subject ``book'' starts the
+sentence with ``whose'' as the object coming later. No movement is
+necessary to place ``whose'' within a complementizer.
+
+\subsubsection{T to C Movement}
+There is not T to C movement in Hangul. See the previously illustrated sentence
+\emph{Did you see the dog?}
+
+\subsubsection{V to N Movement}
+Something new. The verb becomes the noun in cases where tense takes
+over the verb.
+
+\subsection{DP Movement}
+``I am busy doing something''
+
+\begin{tabular}{llll}
+I & busy & doing something &  \\
+naneun & bappeun& mwongaleulhagoissneun& jung-iya
+\end{tabular}
+
+\includegraphics[scale=0.75]{Diagrams/WordOrder4.png}
+
+The above shows that the progressive form of a verb requires V to N
+Movement, but in this case ``am'' is the main verb which requires D to
+V movement. The issue here is that there is a subject and verb
+together ``I am'', but the object comes later. This requires special
+movement to allow for a (SOV) word order. In this case, it is more of
+a copy than a move because ``I'' stays firmly in the subject position.
+
+\subsection{V to T Movement}
+Because Hangul uses V to N movement for progressive forms and all
+other tense related movement is from T to V, it is difficult to show
+if there is any possibility of T to V movement.
+
+
+\section{Conclusion}
+There is no evidence that shows Hangul is capable of moving a NP or VP
+in any order where the outcome would be anything but (SOV). Even when
+moving NP to the VP, the subject still is firmly rooted at the
+beginning of the sentence.
+
+
+\begin{thebibliography}{9}
+  \bibitem{Lee2000} King, Ross and Yeon, Jae-Hoon 2000. Elementary Korean
+  \bibitem{Yeon2000} Cho, Young-Mee, Lee, Hyo Sang, Schulz, Carol,
+    Sohn, Ho-Mi, Sohn, Sung-Ock 200. Integrated Korean
+  \bibitem{lang1} Jurafsky, Daniel, Martin, James H., Jurafsky, Dan
+    2008 (2nd ed.) Speech and Language Processing. An Introduction to Natural Language Processing, Computational Linguistics and Speech Recognition
+\end{thebibliography}
+\end{document}

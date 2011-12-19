@@ -1,0 +1,166 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}            % adds more math symbols
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{multicol}
+\usepackage{listings}
+\title{CS c352: Homework 2}
+\author{Leo Przybylski\\
+\texttt{przybyls@arizona.edu}}
+
+\newcommand{\question}[2]{\textbf{#1.} #2}
+\newcommand{\subquestion}[2]{\par\hspace{0.5cm} \textbf{#1)} #2}
+\newenvironment{answer}{\endpar%
+
+}
+
+    % Give wider margins; gives more text per page.
+
+\setlength{\topmargin}{0.00in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\setlength{\parindent}{0.0cm}	% Don't indent the paragraphs
+%\setlength{\parskip}{0.4cm}	% distance between paragraphs
+
+\definecolor{ubergray}{RGB}{245,245,245}
+\begin{document}
+  \maketitle
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Shell I/O and Piping}
+  \hrulefill \par}
+Task: Answer the following questions related to I/O redirection and piping:
+\question{a}{I/O Redirection.}
+\subquestion{i}{What does this command do? cat < oldfile > newfile Assume that oldfile exists
+prior to the execution, but newfile does not.}
+
+\begin{quote}
+  redirects input from oldfile to the console and subsequently
+  redirects that to newfile. newfile does not exist yet, so it will be created.
+\end{quote}
+
+\subquestion{ii}{Is it possible, on one command, to get Bash to redirect both stdout to one ﬁle and stderr
+to a second ﬁle? If so, how? If not, why can’t Bash (or any shell) do
+this?}
+
+\begin{quote}
+  Yes. \verb|outputsstderrandstdout.sh > some file 2> someotherfile|
+\end{quote}
+
+\subquestion{iii}{Is it possible, on one command, to use I/O redirection to place both stdout and stderr into
+the same ﬁle? If so, how? If not, why can’t Bash (or any shell) do
+this?}
+
+\begin{quote}
+  Yes. \verb|outputsstderrandstdout.sh > somefile 2>&1|
+\end{quote}
+
+\question{b}{Pipes.}
+\subquestion{i}{Use ls to display the content of the directory /etc/X11 on lectura. How many top-level
+subdirectories does that directory contain?}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ ls -l /etc/X11/ | grep -r '^d' | wc -l
+12
+przybyls@lectura:~$
+\end{lstlisting}
+
+\subquestion{ii}{In general, what does the du utility do?}
+
+\begin{quote}
+  'du' stands for disk usage. It traverses a path and returns the
+  usage on disk that is taken up by that path.
+\end{quote}
+
+\subquestion{iii}{Use du to report the total size, in megabytes, of
+/etc/X11 on lectura. What is its size?}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ du -sh /etc/X11
+1.2M	/etc/X11
+przybyls@lectura:~$ 
+\end{lstlisting}
+
+\subquestion{iv}{In general, what does the cut utility do?}
+
+\begin{quote}
+  It 'cuts' out fields from a string
+\end{quote}
+
+\subquestion{v}{Using a pipe, create a one-line command that uses both du and cut to list the names of
+the top-level subdirectories in /etc/X11 on lectura. (Yes, your output will have a lot of
+duplicates! We’ll address that shortly.) What is your command?}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ du -S /etc/X11/|cut -f2| cut -d / -f4
+Xresources
+Xreset.d
+xkb
+fonts
+fonts
+fonts
+fonts
+fonts
+cursors
+ko_KR.eucKR
+ko_KR.eucKR
+fluxbox
+xinit
+xinit
+twm
+ja_JP.eucJP
+ja_JP.eucJP
+Xsession.d
+app-defaults
+\end{lstlisting}
+
+\subquestion{vi}{Identify a UNIX utility that can remove duplicate lines from output. Add this utility to
+your answer from part (v) to remove the duplicates. Again, we’re looking for a one-line
+command created with pipes. What is your command?}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ du -S /etc/X11/|cut -f2| cut -d / -f4|uniq
+Xresources
+Xreset.d
+xkb
+fonts
+cursors
+ko_KR.eucKR
+fluxbox
+xinit
+twm
+ja_JP.eucJP
+Xsession.d
+app-defaults
+\end{lstlisting}
+
+\subquestion{vii}{Augment your one-line command from part (vi) so that the output is in ascending order,
+alphabetically, and state the resulting one-line command}
+
+\begin{lstlisting}[language=bash,basicstyle=\scriptsize,backgroundcolor=\color{ubergray},caption={trnapp-config.xml},frame=single,breaklines=true]
+przybyls@lectura:~$ du -S /etc/X11/|cut -f2| cut -d / -f4|uniq|sort
+
+app-defaults
+cursors
+fluxbox
+fonts
+ja_JP.eucJP
+ko_KR.eucKR
+twm
+xinit
+xkb
+Xreset.d
+Xresources
+Xsession.d
+\end{lstlisting}
+
+\newpage
+  {\setlength{\baselineskip}%
+           {0.0\baselineskip}
+  \section*{Notes and Instructor Comments}
+  \hrulefill \par}
+\end{document}

@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# Copyright 2011 Leo Przybylski
+#
+# Educational Community License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may
+# obtain a copy of the License at
+# 
+# http://www.osedu.org/licenses/ECL-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an "AS IS"
+# BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+# or implied. See the License for the specific language governing
+# permissions and limitations under the License.
+#
+
+###############################################################################
+#  Assignment:  Program #4 part 2 Merely Basic Bash Scripting
+#
+#      Author:  Leo Przybylski
+#    Language:  Bourne Again Shell Scripting Language
+#  To Compile:  pfftttt... yeah, sure
+#
+#       Class:  CSc 352 — Systems Programming and UNIX
+#  Instructor:  Dr. Lester McCann
+#    Due Date:  September 22th, 2011, at the beginning of class
+#
+###############################################################################
+# Description:  Reads a file and outputs a number lines starting from the 
+#               given offset 
+#
+#       Input:  File name - the file to read
+#               offset    - line number to start reading at
+#               length    - number of lines to read
+#
+#      Output:  Lines from a file
+#
+#   Algorithm:  tail the file up to the offset, then head the number of lines
+#
+#  Known Bugs:  
+#
+###############################################################################
+
+if [ $# -ne 3 ]
+then
+    echo <<EOF
+Wrong number of arguments!
+Usage:
+    $0 filename offset length
+        filename - full or relative path of the file you want to read
+        offset   - first line in the file to print
+        length   - number of lines to print
+EOF
+fi
+
+FILE=$1
+OFFSET=$(expr $2 - 1)
+LENGTH=$3
+
+tail -n $(expr $(wc -l $FILE | cut -d ' ' -f 1) - $OFFSET) $FILE | head -n $LENGTH
